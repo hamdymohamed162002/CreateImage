@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Montserrat&display=swap" rel="stylesheet">
+    <title>BIHG</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <div class="title">
+                <img src="WhatsApp Image 2023-04-20 at 17.41.05.jpg" alt="">
+                <h2>يسر مجموعة بن لادن العالمية القابضة</h2>
+                <p>ان تهنئ جميع موظفيها بمناسبة قدوم عيد الفطر المبارك</p>
+            </div>
+            <div class="screen" id="screen">
+                <img src="/WhatsApp Image 2023-04-20 at 16.08.38.jpg" alt="">
+                <div id="name" class="name">hamdy mohamed</div>
+            </div>
+
+            <div class="input">
+                <div class="placeholder"><p>write your name </p> <p>اضف اسمك لبطاقة التهنئة</p></div>
+                <input id="nameInput" type="text">
+                <button id="down">تحميل</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="ok.js"></script>
+    <script>
+        document.getElementById('nameInput').onchange = function(e){
+document.getElementById('name').innerText = e.target.value
+
+        }
+        document.getElementById('down').onclick = function(){
+            const screen=document.getElementById('screen');
+            html2canvas(screen).then((can)=>{
+                const base64=can.toDataURL('image/png');
+                var anchor=document.createElement('a');
+                anchor.setAttribute('href',base64);
+                anchor.setAttribute('download','my-image.png');
+                anchor.click();
+                anchor.remove()
+            })
+        }
+    </script>
+</body>
+
+</html>
